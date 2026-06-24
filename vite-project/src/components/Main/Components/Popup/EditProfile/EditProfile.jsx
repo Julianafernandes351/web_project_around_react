@@ -6,8 +6,8 @@ export default function EditProfile() {
               name="name"
               placeholder="Nome"
               type="text"
-              minlength="2"
-              maxlength="40"
+              minLength="2"
+              maxLength="40"
               required
             />
             <span className="name-input-error popup__input-error"
@@ -18,8 +18,8 @@ export default function EditProfile() {
               name="description"
               placeholder="Sobre mim"
               type="text"
-              minlength="2"
-              maxlength="200"
+              minLength="2"
+              maxLength="200"
               required
             />
             <span className="description-input-error popup__input-error"
