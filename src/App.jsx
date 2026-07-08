@@ -6,15 +6,18 @@ import heroImg from './assets/hero.png'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Main from './components/Main/Main'
+import {CurrentUserProvider} from './context/CurrentUserContext.jsx'
 
 function App() {
  
   return (
-    <div className="page__content">
-    <Header />
-    <Main />
-    <Footer />  
-     </div>
+    <CurrentUserProvider>
+      <div className="page__content" >
+        <Header />
+        <Main  />
+        <Footer />  
+      </div>
+    </CurrentUserProvider>
   );
 }
 
