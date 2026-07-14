@@ -21,7 +21,7 @@ class Api {
   }
 
   // Método para adicionar um novo cartão (POST)
-addCard(name, link) {
+addCard({name, link}) {
   return fetch(`${this._baseUrl}/cards`, {
     method: 'POST',
     headers: this._headers,
@@ -70,12 +70,12 @@ dislikeCard(cardId) {
     return Promise.reject(`Erro ao descurtir: ${res.status}`);
   });
 }
-  updateAvatar(avatarUrl) {
+  setUserAvatar({avatar}) {
   return fetch(`https://around-api.pt-br.tripleten-services.com/v1/users/me/avatar`, {
     method: "PATCH",
     headers: this._headers,
     body: JSON.stringify({
-      avatar: avatarUrl
+      avatar: avatar
     })
   })
   .then(res => {
@@ -96,9 +96,23 @@ changeLikeCardStatus(cardID, like) {
   _handleServerResponse(res) {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   }
+  setUserInfo({name, about}) {
+  return fetch(`${this._baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: this._headers,
+    body: JSON.stringify({
+      name: name,
+      about: about
+    })
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Erro: ${res.status}`);
+  });
 }
-  
-
+}
 
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
@@ -107,15 +121,10 @@ const api = new Api({
     authorization: "b1d0d695-90dd-48d6-9537-b67eec2fba9e",
     "Content-Type": "application/json"
   },
-  body: JSON.stringify({
-    name: "Marie Skłodowska Curie",
-    about: "Profissional de Física e Profissional de Química"
-  })
-
 
 });
 
 
 
 
-export default Api;
+export default api;

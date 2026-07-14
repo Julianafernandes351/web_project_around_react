@@ -1,9 +1,26 @@
+import { useContext } from 'react';
+import { CurrentUserContext } from "../../../../../context/CurrentUserContext";
+
+
 export default function NewCard() {
+
+  const { handleAddPlaceSubmit } = useContext(CurrentUserContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const cardName = e.target.elements['card-name'].value;
+    const cardLink = e.target.elements['link'].value;
+    handleAddPlaceSubmit({ name: cardName, link: cardLink });
+  }
+
+  
+  
   return (
     <form
       className="popup__form"
       name="card-form"
       id="new-card-form"
+      onSubmit={handleSubmit}
+
       noValidate
     >
       <label className="popup__field">
