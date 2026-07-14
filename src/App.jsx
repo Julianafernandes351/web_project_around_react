@@ -6,7 +6,7 @@ import heroImg from './assets/hero.png'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Main from './components/Main/Main'
-import {CurrentUserContext} from './context/CurrentUserContext.jsx'
+import {CurrentUserContext} from './contexts/CurrentUserContext'
 import api from './utils/api.js'
 
 

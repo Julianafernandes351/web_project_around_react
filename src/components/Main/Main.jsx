@@ -5,7 +5,7 @@ import NewCard from "./Components/Popup/NewCard/NewCard";
 import EditAvatar from "./Components/Popup/EditAvatar/EditAvatar";
 import EditProfile from "./Components/Popup/EditProfile/EditProfile";
 import AvatarImage from "../../images/avatar.jpg";
-import {CurrentUserContext} from "../../context/CurrentUserContext.jsx";
+import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import api from "../../utils/api.js";
 
 
