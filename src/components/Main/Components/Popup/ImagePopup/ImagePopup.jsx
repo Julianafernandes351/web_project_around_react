@@ -1,4 +1,4 @@
-export default function Popup(props) {
+export default function ImagePopup(props) {
   //children é o conteúdo de popup
   const { onClose, title, children, link, } = props;
 
