@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import logo from "./images/logo.svg";
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-import Main from './components/Main/Main'
-import {CurrentUserContext} from './contexts/CurrentUserContext'
-import api from './utils/api.js'
+import logo from "../images/logo.svg";
+import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import heroImg from '../assets/hero.png'
+import Header from './Header/Header.jsx'
+import Footer from './Footer/Footer.jsx'
+import Main from './Main/Main.jsx'
+import {CurrentUserContext} from '../contexts/CurrentUserContext.js'
+import api from '../utils/api.js'
 
 
 function App() {
