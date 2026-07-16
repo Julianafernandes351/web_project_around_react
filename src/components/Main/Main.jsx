@@ -18,7 +18,6 @@ export default function Main({ onOpenPopup, onClosePopup, popup, cards, handleCa
   const editAvatarPopup = { title: "Edit avatar", children: <EditAvatar /> };
   const editProfilePopup = { title: "Edit profile", children: <EditProfile /> };
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-  console.log(currentUser);
 
 
 

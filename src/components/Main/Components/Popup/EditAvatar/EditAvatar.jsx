@@ -26,8 +26,7 @@ function handleSubmit(e) {
               ref={avatarRef}
             />
             <span className="link-input-error popup__input-error"
-              >Insira um URL.</span
-            >
+              ></span>
             <button className="button popup__button" type="submit">Salvar</button>
           </form>
     )}

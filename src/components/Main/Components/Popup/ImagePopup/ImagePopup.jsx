@@ -3,9 +3,9 @@ export default function ImagePopup(props) {
   const { onClose, title, children, link, } = props;
 
   return (
-    <div className="popup__content popup__content_content_image">
+    <div className=" popup__content popup__content_content_image">
           <img alt="" className="popup__image" src={link} />
           <p className="popup__caption">{title}</p>
-        </div>
+    </div>  
   );
 }

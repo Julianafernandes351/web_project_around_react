@@ -4,7 +4,7 @@ import { CurrentUserContext } from "../../../../contexts/CurrentUserContext";
 
 export default function Card(props) {
   const { name, link, isLiked } = props.card;
-  const imagePopup = { title: "", children: <ImagePopup name={name} link={link} /> };
+  const imagePopup = { children: <ImagePopup title={name} link={link} /> };
   const { currentUser } = useContext(CurrentUserContext);
   const cardLikeButtonClassName = `card__like-button ${
   isLiked ? 'card__like-button_is-active' : ''

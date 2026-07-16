@@ -1,5 +1,7 @@
 # React + Vite
 
+O roteamento no React nos fornece a capacidade de incluir diferentes exibições em nossos aplicativos de página única.  Nesse projeto foi motrado como levantar variáveis de estado e usá-las em vários componentes.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

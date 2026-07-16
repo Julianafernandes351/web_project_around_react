@@ -46,9 +46,7 @@ const handleSubmit = (event) => {
               maxLength="200"
               required
             />
-            <span className="description-input-error popup__input-error"
-              ></span
-            >
+            <span className="description-input-error popup__input-error"></span>
             <button className="button popup__button" type="submit" >Salvar</button>
           </form>
           )};

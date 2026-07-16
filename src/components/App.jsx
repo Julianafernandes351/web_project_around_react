@@ -18,7 +18,7 @@ const [cards, setCards] = useState([]);
 
 useEffect(() => {
   api.getInitialCards().then((initialCards) => {
-  setCards(initialCards);})
+  setCards(initialCards);}).catch((error) => console.error(error));
 }, []);
 
    function handleCardLike(card) {
@@ -51,13 +51,12 @@ useEffect(() => {
     (async () => {
       await api.getUserInfo().then((data) => {
         setCurrentUser(data);
-      });
-    })();
+      }).catch((error) => console.error(error))
+    });
   }, []);
 
  const handleUpdateUser = (data) => {
     (async () => {
-      console.log(data);
       await api
         .setUserInfo(data)
         .then((newData) => {

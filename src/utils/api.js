@@ -6,18 +6,26 @@ class Api {
   }
 
   async getInitialCards() {
-    const response = await fetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
-    });
-
-    return response.json();
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      });
   }
   async getUserInfo() {
-    const response = await fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
-    });
-
-    return response.json();
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      });
   }
 
   // Método para adicionar um novo cartão (POST)
@@ -71,7 +79,7 @@ dislikeCard(cardId) {
   });
 }
   setUserAvatar({avatar}) {
-  return fetch(`https://around-api.pt-br.tripleten-services.com/v1/users/me/avatar`, {
+return fetch(`${this._baseUrl}/users/me/avatar`, {
     method: "PATCH",
     headers: this._headers,
     body: JSON.stringify({
@@ -116,7 +124,6 @@ changeLikeCardStatus(cardID, like) {
 
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
-   method: "PATCH",
   headers: {
     authorization: "b1d0d695-90dd-48d6-9537-b67eec2fba9e",
     "Content-Type": "application/json"
