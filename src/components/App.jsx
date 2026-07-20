@@ -35,7 +35,9 @@ useEffect(() => {
  function handleCardDelete(card) {
   // Enviar uma solicitação para a API para excluir o cartão
    api.deleteCard(card._id).then(() => {
-      setCards((state) => state.filter((currentCard) => currentCard._id !== card._id));
+      setCards((state) => state.filter((currentCard) => currentCard._id !== card._id));    
+      handleClosePopup();
+
   }).catch((error) => console.error(error));
 }
 
@@ -48,23 +50,19 @@ useEffect(() => {
   }
 
   useEffect(() => {
-    (async () => {
-      await api.getUserInfo().then((data) => {
+       api.getUserInfo().then((data) => {
         setCurrentUser(data);
       }).catch((error) => console.error(error))
-    });
   }, []);
 
  const handleUpdateUser = (data) => {
-    (async () => {
-      await api
+       api
         .setUserInfo(data)
         .then((newData) => {
           setCurrentUser(newData);
           handleClosePopup();
         })
         .catch((error) => console.error(error));
-    })();
   };
 
   const handleUpdateAvatar = (data) => {

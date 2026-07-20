@@ -1,6 +1,7 @@
 import ImagePopup from "../Popup/ImagePopup/ImagePopup";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../../../contexts/CurrentUserContext";
+import RemoveCard from "../Popup/RemoveCard/RemoveCard";
 
 export default function Card(props) {
   const { name, link, isLiked } = props.card;
@@ -8,7 +9,15 @@ export default function Card(props) {
   const { currentUser } = useContext(CurrentUserContext);
   const cardLikeButtonClassName = `card__like-button ${
   isLiked ? 'card__like-button_is-active' : ''
+
 }`;
+
+const handleCardDelete = () => {
+  props.onCardDelete(props.card);
+}
+  const removeCardPopup = { children: <RemoveCard handleCardDelete={handleCardDelete} />, title: "Tem certeza?" };
+
+
 
   return (
     <li className="card">
@@ -17,8 +26,9 @@ export default function Card(props) {
         aria-label="Delete card"
         className="card__delete-button"
         type="button"
-        onClick={() => props.onCardDelete(props.card)}
-      />
+        // onClick={() => props.onCardDelete(props.card)}
+        onClick={() => props.openPopup(removeCardPopup)}
+      /> 
       <div className="card__description">
         <h2 className="card__title">{name}</h2>
         <button

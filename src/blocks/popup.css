@@ -58,12 +58,16 @@
 .popup__content {
   max-width: 430px;
   width: 100%;
+  background: #fff;
   border-radius: 10px;
   position: relative;
   box-sizing: border-box;
   padding: 34px 36px;
 }
 
+.popup__content_content_image {
+  background: transparent;
+}
 .popup__form {
   margin-top: 27px;
 }
